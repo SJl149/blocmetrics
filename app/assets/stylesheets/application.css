@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+ @import "bootstrap-sprockets";
+
+ @import "bootswatch/readable/variables";
+
+ @import "bootstrap";
+
+ @import url('https://fonts.googleapis.com/css?family=Inconsolata');
+
+ body {
+     padding-top: 100px;
+     padding-bottom: 60px;
+ }
+
+ @import "bootswatch/readable/bootswatch";
