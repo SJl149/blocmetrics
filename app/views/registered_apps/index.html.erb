@@ -1,0 +1,16 @@
+<h1>Index of apps</h1>
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>URL</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @registered_apps %>
+  </tbody>
+</table>
+<ul class="nav nav-pills">
+  <li class="active"><%= link_to "New", new_registered_app_path %></li>
+</ul>
