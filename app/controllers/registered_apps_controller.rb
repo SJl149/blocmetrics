@@ -2,6 +2,7 @@ class RegisteredAppsController < ApplicationController
 
   def index
     @registered_apps = current_user.registered_apps
+    @registered_app = RegisteredApp.new
   end
 
   def show
@@ -16,10 +17,24 @@ class RegisteredAppsController < ApplicationController
     @registered_app = current_user.registered_apps.new(app_params)
     if @registered_app.save
       flash[:notice] = "Application was registered."
-      redirect_to root_path
     else
       flash.now[:alert] = "There was an error registering your application. (Duplicate urls for the same user are not allowed.)"
-      render :new
+    end
+  end
+
+  def edit
+    @registered_app = RegisteredApp.find(params[:id])
+  end
+
+  def update
+    @registered_app = RegisteredApp.find(params[:id])
+
+    if @registered_app.update(app_params)
+      flash[:notice] = "Application registration was updated successfully."
+      redirect_to root_path
+    else
+      flash.now[:alert] = "Error updating application registration. Please try again."
+      redirect_to root_path
     end
   end
 
@@ -28,10 +43,8 @@ class RegisteredAppsController < ApplicationController
 
     if @registered_app.destroy
       flash[:notice] = "#{@registered_app.name} was deleted."
-      redirect_to root_path
     else
       flash.now[:alert] = "There was a problem deleting #{@registered_app.name}."
-      redirect_to root_path
     end
   end
 
