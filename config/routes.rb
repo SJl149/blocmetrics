@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
 
   devise_for :users, :controllers => { registrations: 'registrations'}
-  
+
   get 'about', to: 'home#about'
+
+  authenticated :user do
+    resources :registered_apps
+    root 'registered_apps#index', as: :authenticate_root
+  end
 
   root 'home#index'
 

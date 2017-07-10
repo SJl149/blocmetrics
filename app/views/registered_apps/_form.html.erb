@@ -1,0 +1,22 @@
+<%= form_for(@registered_app, remote: true, html: {id: "add-app"}) do |f| %>
+  <fieldset>
+    <legend>Register Application</legend>
+    <div class="form-group">
+      <%= f.label :name, class: "col-lg-2 control-label" %>
+      <div class="col-lg-10">
+        <%= f.text_field :name, class: "form-control", placeholder: 'Application Name' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :url, class: "col-lg-2 control-label" %>
+      <div class="col-lg-10">
+        <%= f.url_field :url, class: "form-control", placeholder: 'www.example.com/put_here' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-lg-2 col-lg-offset-10">
+        <%= f.submit 'Save', class: 'btn btn-success btn-block' %>
+      </div>
+    </div>
+  </fieldset>
+<% end %>

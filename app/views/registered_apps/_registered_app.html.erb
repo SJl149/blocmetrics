@@ -1,0 +1,5 @@
+<tr>
+  <td><%= link_to registered_app.name, registered_app %></td>
+  <td><%= registered_app.url %></td>
+  <td class="delete-app"><%= link_to "Delete", registered_app, remote: true, method: :delete, data: {confirm: "Are you sure you want to delete this application?"} %></td>
+</tr>
