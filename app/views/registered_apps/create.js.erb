@@ -1,2 +1,6 @@
+<% if @registered_app.valid? %>
 $('.apps').append("<%= j render(@registered_app) %>");
 $('#add-app')[0].reset();
+<% else %>
+  $('.flash').html('<div class="alert alert-warning"><%= flash[:alert] %></div>');
+<% end %>
