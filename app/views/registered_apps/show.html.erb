@@ -33,10 +33,10 @@
         </tr>
       </thead>
       <tbody>
-        <% @events.each do |event| %>
+        <% @events.each do |name, events| %>
           <tr>
-            <td><%= event[0] %></td>
-            <td><%= event.count %></td>
+            <td><%= name %></td>
+            <td><%= events.count %></td>
           </tr>
         <% end %>
       </tbody>
