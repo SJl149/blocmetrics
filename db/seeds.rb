@@ -35,6 +35,12 @@ registered_apps = RegisteredApp.all
   event.save!
 end
 
+event1 = Event.first
+double_event = Event.new(
+  name: event1.name,
+  registered_app: event1.registered_app
+)
+double_event.save!
 
 
 puts "Seeds finished"
