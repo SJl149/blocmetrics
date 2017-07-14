@@ -7,6 +7,7 @@ class RegisteredAppsController < ApplicationController
 
   def show
     @registered_app = RegisteredApp.find(params[:id])
+    @events = @registered_app.events.group_by(&:name)
   end
 
   def new
@@ -31,7 +32,7 @@ class RegisteredAppsController < ApplicationController
 
     if @registered_app.update(app_params)
       flash[:notice] = "Application registration was updated successfully."
-      redirect_to root_path
+      render :show
     else
       flash.now[:alert] = "Error updating application registration. Please try again."
       redirect_to root_path
