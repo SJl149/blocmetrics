@@ -25,10 +25,10 @@ blocmetrics.report = function(eventName) {
   request.open("POST", "http://localhost:3000/api/events", true);
   request.setRequestHeader("Content-Type", "application/json");
   request.send(JSON.stringify(event));
-}
+};
 
 $(document).on('turbolinks:load', function(){
-  $('.edit-user').click(function(){
-    blocmetrics.report('edit-user')
+  $('.edit-profile').click(function(){
+    blocmetrics.report('edit-profile')
   });
 });

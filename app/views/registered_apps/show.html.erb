@@ -19,7 +19,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> 
 </div>
 <div class="container">
   <h1></h1>
@@ -36,7 +36,7 @@
   <div class="col-md-6">
     <h3 class="text-center text-primary">Events Activity</h3>
     <div class="well well-lg">
-      <%= line_chart @registered_app.events.group_by_day(:created_at).count %>
+      <%= line_chart @registered_app.events.group_by_day(:created_at).count, xtitle: "Events", ytitle: "Time", curve: false %>
     </div>
   </div>
 </div>
